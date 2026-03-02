@@ -1,0 +1,41 @@
+# Instructions - Testing Fire Models
+
+You have placed 6 models in the `Models/` directory. Here are the commands to test them.
+
+> **Note:** Models 2.pt and 4.pt appear to be corrupted or incompatible with YOLOv8. They throw serialization errors when loaded.
+
+### Model 1 (`Models/1.pt`)
+This model has 3 classes: `0: 'FireMen'`, `1: 'Fire'`, `2: 'Smoke'`.
+**Command:**
+```powershell
+python detect_v8.py --weights "Models/1.pt" --target-class 1 --source 0
+```
+
+### Model 3 (`Models/3.pt`)
+This model has 2 classes: `0: 'Fire'`, `1: 'Smoke'`.
+**Command:**
+```powershell
+python detect_v8.py --weights "Models/3.pt" --target-class 0 --source 0
+```
+
+### Model 5 (`Models/5.pt`)
+This model has 2 classes: `0: 'Fire'`, `1: 'Smoke'`.
+**Command:**
+```powershell
+python detect_v8.py --weights "Models/5.pt" --target-class 0 --source 0
+```
+
+### Model 6 (`Models/6.pt`)
+This model has 2 classes: `0: 'Fire'`, `1: 'Smoke'`.
+**Command:**
+```powershell
+python detect_v8.py --weights "Models/6.pt" --target-class 0 --source 0
+```
+
+---
+
+### Additional Flags
+You can append these flags to any of the above commands to fine-tune the system:
+- `--frame-skip`: Skip N frames to save CPU (default is 3). Example: `--frame-skip 5`
+- `--persistence`: Number of consecutive frames required to trigger alert (default is 5). Example: `--persistence 3`
+- `--conf`: Confidence threshold for the YOLO model (default is 0.25). Example: `--conf 0.5`
